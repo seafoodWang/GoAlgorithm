@@ -19,3 +19,18 @@ func createList(size int) *Node {
 	}
 	return head
 }
+
+func createListBySlice(data []int) *Node {
+	node := &Node{}
+	head := node
+	for i := 0; i < len(data); i++ {
+		node.Val = data[i]
+		if i == len(data)-1 {
+			node.Next = nil
+		} else {
+			node.Next = &Node{}
+		}
+		node = node.Next
+	}
+	return head
+}
