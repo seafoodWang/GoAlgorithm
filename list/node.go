@@ -1,11 +1,16 @@
 package list
 
+import "fmt"
+
 type Node struct {
 	Val  int
 	Next *Node
 }
 
 func createList(size int) *Node {
+	if size == 0 {
+		return nil
+	}
 	node := &Node{}
 	head := node
 	for i := 0; i < size; i++ {
@@ -21,6 +26,9 @@ func createList(size int) *Node {
 }
 
 func createListBySlice(data []int) *Node {
+	if len(data) == 0 {
+		return nil
+	}
 	node := &Node{}
 	head := node
 	for i := 0; i < len(data); i++ {
@@ -33,4 +41,11 @@ func createListBySlice(data []int) *Node {
 		node = node.Next
 	}
 	return head
+}
+
+func PrintNodeList(node *Node) {
+	for node != nil {
+		fmt.Println(node.Val)
+		node = node.Next
+	}
 }

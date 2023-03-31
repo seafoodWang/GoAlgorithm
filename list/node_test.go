@@ -13,5 +13,8 @@ func TestCreateNode(t *testing.T) {
 		node = node.Next
 		index++
 	}
-
+	node = createList(0)
+	if node != nil {
+		t.Error("node not nil")
+	}
 }
