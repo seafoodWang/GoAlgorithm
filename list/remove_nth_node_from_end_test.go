@@ -1,7 +1,6 @@
 package list
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -9,11 +8,19 @@ import (
 
 func TestRemoveNthNodeFromEndOfList1st(t *testing.T) {
 	size := 10
-	head := createList(10)
+	head := createList(size)
 	lastIndex := 10
+	head = solution1(size, lastIndex, head)
+	PrintNodeList(head)
+}
+
+func solution1(size, lastIndex int, head *Node) *Node {
 	if size == lastIndex {
 		head = head.Next
-		return
+		return head
+	}
+	if lastIndex == 0 {
+		return head
 	}
 	node := head
 	iteratorTimes := 0
@@ -27,14 +34,18 @@ func TestRemoveNthNodeFromEndOfList1st(t *testing.T) {
 		node = node.Next
 	}
 	node.Next = node.Next.Next
-	for head != nil {
-		fmt.Println(head.Val)
-		head = head.Next
-	}
+	return head
 }
 
 // two ptr
-// TODO
 func TestRemoveNthNodeFromEndOfList2nd(t *testing.T) {
+	size := 10
+	head := createList(size)
+	lastIndex := 10
+	head = solution2(lastIndex, head)
+	PrintNodeList(head)
+}
 
+func solution2(lastIndex int, head *Node) *Node {
+	return nil
 }
