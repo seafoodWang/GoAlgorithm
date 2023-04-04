@@ -1,15 +1,15 @@
 package stack
 
 import (
+	"fmt"
 	"testing"
 )
 
 func TestStack(t *testing.T) {
-	stack := InitStack(4)
+	stack := InitStack()
 	stack.Push(1)
 	stack.Push(2)
 	stack.Push(3)
 	stack.Push(5)
-	stack.IsFull()
-
+	fmt.Println(stack.Data)
 }

@@ -1,6 +1,9 @@
 package stack
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 type Stack struct {
 	Size  int
@@ -8,35 +11,37 @@ type Stack struct {
 	index int
 }
 
-func InitStack(size int) *Stack {
-	data := make([]int, size)
+// 动态扩容
+func InitStack() *Stack {
+	data := make([]int, 0)
 	return &Stack{
-		Size:  size,
 		Data:  data,
 		index: 0,
 	}
 }
 
 func (s *Stack) IsEmpty() bool {
-	return s.index == 0
+	return len(s.Data) == 0
 }
 
 func (s *Stack) IsFull() bool {
-	return s.Size == s.index
+	return len(s.Data) == cap(s.Data)
 }
 
 func (s *Stack) Push(x int) (int, error) {
-	if s.IsFull() {
-		return -1, errors.New("stack is Full can not push")
+	fmt.Println(s.Data)
+	if s.index < cap(s.Data) {
+		s.Data[s.index] = x
+	} else {
+		s.Data = append(s.Data, x)
 	}
-	s.Data[s.index] = x
-	s.index += 1
+	s.index++
 	return x, nil
 }
 
 func (s *Stack) Pop() (int, error) {
 	if s.IsEmpty() {
-		return -1, errors.New("stack is Empty can not pop")
+		return 0, errors.New("stack is Empty can not pop")
 	}
 	s.index -= 1
 	x := s.Data[s.index]
