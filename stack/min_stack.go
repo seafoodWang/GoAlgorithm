@@ -7,9 +7,9 @@ type MinElementStack struct {
 	MinStack  *Stack
 }
 
-func InitMinElementStack(size int) *MinElementStack {
-	dataStack := InitStack(size)
-	minStack := InitStack(size)
+func InitMinElementStack() *MinElementStack {
+	dataStack := InitStack()
+	minStack := InitStack()
 	return &MinElementStack{DataStack: dataStack, MinStack: minStack}
 }
 

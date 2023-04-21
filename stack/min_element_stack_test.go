@@ -2,12 +2,13 @@ package stack_test
 
 import (
 	"fmt"
-	stack "learn/stack_test"
+	stack "learn/stack"
 	"testing"
 )
 
+// leetcode-155 https://leetcode.cn/problems/min-stack/
 func TestGetMinElementStack(t *testing.T) {
-	minElementStack := stack.InitMinElementStack(5)
+	minElementStack := stack.InitMinElementStack()
 	minElementStack.Push(7)
 	minElementStack.Push(2)
 	minElementStack.Push(5)
