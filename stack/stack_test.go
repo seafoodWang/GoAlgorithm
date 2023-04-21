@@ -12,4 +12,11 @@ func TestStack(t *testing.T) {
 	stack.Push(3)
 	stack.Push(5)
 	fmt.Println(stack.Data)
+	fmt.Println(stack.Pop())
+	fmt.Println(stack.Pop())
+	stack.Push(10)
+	fmt.Println(stack.Data)
+	fmt.Println(stack.Pop())
+	fmt.Println(stack.Peek())
+	fmt.Println(stack.Data)
 }
